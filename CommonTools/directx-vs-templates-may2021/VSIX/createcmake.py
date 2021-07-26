@@ -3,16 +3,20 @@ from pathlib import Path
 import shutil
 import os
 
-def replace_projectname(template_dir, file_names, target_dir, project_name):
-    for file_name in file_names:
-        str_file_name = file_name.name
+def replace_single_projectname(template_dir, str_file_name, target_dir, project_name):
         template_path = template_dir + '/' + str_file_name
         reader = open(template_path, 'r')
         input_data = reader.read()
         output_data = input_data.replace('$projectname$', project_name)
+        output_data = output_data.replace('$safeprojectname$', project_name)
         target_path = target_dir + '/' + str_file_name
         writer = open(target_path, 'w')
         writer.write(output_data)
+
+def replace_projectname(template_dir, file_names, target_dir, project_name):
+    for file_name in file_names:
+        str_file_name = file_name.name
+        replace_single_projectname(template_dir, str_file_name, target_dir, project_name)
 
 def copy_files(src_paths, target_path):
     for src_path in src_paths:
@@ -50,7 +54,9 @@ if __name__ == '__main__':
     replace_projectname(template_dir, cpplist, target_dir, project_name)
     replace_projectname(template_dir, headerlist, target_dir, project_name)
 
-    shutil.copy(Path(template_dir + '/' + 'CMakeLists.txt'), target_dir_path)
+    replace_single_projectname(template_dir, 'CMakeLists.txt', target_dir, project_name)
+
+    #shutil.copy(Path(template_dir + '/' + 'CMakeLists.txt'), target_dir_path)
     copy_files(Path(template_dir).glob('*.json'), target_dir_path)
     copy_files(Path(template_dir).glob('*.rc'), target_dir_path)
     shutil.copy(Path(template_dir + '/' + 'directx.ico'), target_dir_path)

@@ -8,7 +8,7 @@ if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
 
 endif()
 
-project(CMakeDirect3DGame
+project($projectname$
   DESCRIPTION "CMake example for Direct3D 11 Game (Win32)"
   LANGUAGES CXX)
 
