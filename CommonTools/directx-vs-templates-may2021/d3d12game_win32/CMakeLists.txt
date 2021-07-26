@@ -32,6 +32,7 @@ add_executable(${PROJECT_NAME} WIN32
     Game.h
     Main.cpp
     StepTimer.h
+	DirHelper.h
     pch.h
     d3dx12.h
 )

@@ -34,6 +34,7 @@ add_executable(${PROJECT_NAME} WIN32
     DeviceResources.h
     Main.cpp
     StepTimer.h
+	DirHelper.h
     pch.h
 )
 
