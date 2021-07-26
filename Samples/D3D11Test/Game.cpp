@@ -4,6 +4,7 @@
 
 #include "pch.h"
 #include "Game.h"
+#include "DirHelper.h"
 
 extern void ExitGame() noexcept;
 
@@ -11,15 +12,6 @@ using namespace DirectX;
 
 using Microsoft::WRL::ComPtr;
 
-
-std::wstring GetExeDirectory()
-{
-	wchar_t buffer[MAX_PATH];
-	GetModuleFileNameW(NULL, buffer, MAX_PATH);
-	std::wstring::size_type pos = std::wstring(buffer).find_last_of(L"\\/");
-
-	return std::wstring(buffer).substr(0, pos);
-}
 
 Game::Game() noexcept(false)
 {
