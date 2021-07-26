@@ -8,7 +8,7 @@ if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
 
 endif()
 
-project (CMakeDirect3DGameDR
+project (D3D11Empty
   DESCRIPTION "CMake example for Direct3D 11 Game (Win32) w/ DeviceResources"
   LANGUAGES CXX)
 
