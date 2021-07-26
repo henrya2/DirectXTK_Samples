@@ -8,3 +8,7 @@ D3D11Test is the new sample name.
 
 
 All projects are configured to use DirectXTK and DirectXMath.
+
+# References
+[Getting Started - DirectXTK](https://github.com/microsoft/DirectXTK/wiki/Getting-Started)
+
